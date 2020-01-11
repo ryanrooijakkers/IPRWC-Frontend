@@ -1,0 +1,24 @@
+nav {
+  background-color: #FCFBFA;
+}
+
+a,li {
+  color: #2C2C2C;
+}
+
+.brand-logo {
+  font-size: 36px;
+}
+
+.material-icons {
+  color: #7A7776;
+}
+
+@font-face {
+  font-family: test;
+  src: url("../../../assets/CapricaSansPersonalUse-J4wx.ttf");
+}
+
+#login-modal {
+  width: 40%;
+}

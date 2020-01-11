@@ -1,0 +1,5 @@
+<app-header></app-header>
+<div class="row">
+  <app-product-item class="col s12 m4" *ngFor="let product of productService.products" [product]="product"></app-product-item>
+</div>
+<a routerLink="" class="waves-effect waves-light btn-flat">Home</a>

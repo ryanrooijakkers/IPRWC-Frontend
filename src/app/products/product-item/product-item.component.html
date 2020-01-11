@@ -1,0 +1,22 @@
+<div class="card white darken-1">
+  <div class="card-content blue-grey-text">
+    <span class="card-title">{{ product.name }}</span>
+    <div class="row">
+      <div class="col s6">
+<!--        <img src="{{ product.imgPath }}" alt="">-->
+      </div>
+      <div class="col s6">
+        <ul>
+          <li><p>{{ product.name }}</p></li>
+          <li><p>{{ product.height }}</p></li>
+          <li><p>{{ product.cost }}</p></li>
+          <li><p>{{ product.temperature }}</p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card-action">
+    <a routerLink="/product-detail/{{ product.id }}">Info</a>
+    <a href="#">Order now</a>
+  </div>
+</div>
