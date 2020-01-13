@@ -6,6 +6,9 @@ import {ShoppingCartComponent} from './users/shopping-cart/shopping-cart.compone
 import {LoginComponent} from './users/login/login.component';
 import {ProductDetailComponent} from './products/product-detail/product-detail.component';
 import {ProductResolver} from './products/product-resolver.service';
+import {RegisterComponent} from './users/register/register.component';
+import {AccountComponent} from './users/account/account.component';
+import {AuthenticatedGuard} from './shared/authenticated.guard';
 
 
 const routes: Routes = [
@@ -13,8 +16,10 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent, resolve: {products: ProductResolver}},
   {path: 'products', component: ProductListComponent, resolve: {products: ProductResolver}},
   {path: 'shopping-cart', component: ShoppingCartComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'product-detail/:product', component: ProductDetailComponent}
+  {path: 'login', component: LoginComponent, canActivate: [AuthenticatedGuard]},
+  {path: 'register', component: RegisterComponent, canActivate: [AuthenticatedGuard]},
+  {path: 'product-detail/:product', component: ProductDetailComponent},
+  {path: 'account', component: AccountComponent, canActivate: [AuthenticatedGuard]}
 ];
 
 @NgModule({

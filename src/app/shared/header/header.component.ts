@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import * as M from 'materialize-css';
+import {UserService} from '../../users/user.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,12 @@ import * as M from 'materialize-css';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
+  loggedIn: boolean;
 
-  constructor() { }
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
+    this.loggedIn = this.userService.isLoggedIn();
   }
 
   ngAfterViewInit() {
@@ -22,5 +25,9 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
     const modalElems = document.querySelectorAll('.modal');
     M.Modal.init(modalElems);
+  }
+
+  logout() {
+    this.userService.logout();
   }
 }

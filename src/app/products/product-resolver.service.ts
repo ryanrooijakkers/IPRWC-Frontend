@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs';
 import {Product} from './product.model';
-import {ProductService} from '../service/product.service';
+import {ProductService} from './product.service';
 
 @Injectable()
 export class ProductResolver implements Resolve<Product[]> {

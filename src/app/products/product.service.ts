@@ -1,4 +1,4 @@
-import {Product} from '../products/product.model';
+import {Product} from './product.model';
 import {Injectable} from '@angular/core';
 import {HttpService} from '../shared/http.service';
 import {Subject} from 'rxjs';

@@ -22,3 +22,7 @@ a,li {
 #login-modal {
   width: 40%;
 }
+
+.sidenav a {
+  margin: 0;
+}

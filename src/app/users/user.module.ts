@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import {AppRoutingModule} from '../app-routing.module';
 import {SharedModule} from '../shared/shared.module';
+import { RegisterComponent } from './register/register.component';
+import { AccountComponent } from './account/account.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, ShoppingCartComponent],
+  declarations: [LoginComponent, ShoppingCartComponent, RegisterComponent, AccountComponent],
   exports: [
     LoginComponent
   ],
@@ -17,7 +19,8 @@ import {SharedModule} from '../shared/shared.module';
     CommonModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
-export class UsersModule { }
+export class UserModule { }
