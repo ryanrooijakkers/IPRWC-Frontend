@@ -17,9 +17,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    const carouselElems = document.querySelectorAll('.carousel');
-    M.Carousel.init(carouselElems, { fullWidth: true, indicators: true });
-
     const dropdownElems = document.querySelectorAll('.sidenav');
     M.Sidenav.init(dropdownElems);
 

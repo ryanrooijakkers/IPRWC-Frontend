@@ -6,27 +6,27 @@
     </div>
   </div>
   <div class="row">
-    <form class="card blue-grey" #formGroup="ngForm" (ngSubmit)="onSubmit()">
+    <form class="card" #formGroup="ngForm" (ngSubmit)="onSubmit()">
       <div class="input-field col s12">
-        <input id="name" type="text" name="name" ngModel required #name="ngModel" class="white-text">
-        <label for="name" class="yellow-text">Name</label>
+        <input id="name" type="text" name="name" ngModel required #name="ngModel">
+        <label for="name">Name</label>
         <div *ngIf="name.invalid && name.touched">
-          <span class="helper-text white-text" *ngIf="name.errors.name">Name is required</span>
+          <span class="helper-text" *ngIf="name.errors.name">Name is required</span>
         </div>
       </div>
       <div class="input-field col s12">
-        <input id="email" type="email" name="email" ngModel required email #email="ngModel" class="white-text">
-        <label for="email" class="yellow-text">Email</label>
+        <input id="email" type="email" name="email" ngModel required email #email="ngModel">
+        <label for="email">Email</label>
         <div *ngIf="email.invalid && email.touched">
-          <span class="helper-text white-text" *ngIf="email.errors.email">This is not a valid email</span>
-          <span class="helper-text white-text" *ngIf="email.errors.required">Email is required</span>
+          <span class="helper-text" *ngIf="email.errors.email">This is not a valid email</span>
+          <span class="helper-text" *ngIf="email.errors.required">Email is required</span>
         </div>
       </div>
       <div class="input-field col s12">
-        <input id="password" type="password" name="password" ngModel required #password="ngModel" class="white-text">
-        <label for="password" class="yellow-text">Password</label>
+        <input id="password" type="password" name="password" ngModel required #password="ngModel">
+        <label for="password">Password</label>
         <div *ngIf="password.invalid && password.touched">
-          <span class="helper-text white-text" *ngIf="password.errors.required">Password is required</span>
+          <span class="helper-text" *ngIf="password.errors.required">Password is required</span>
         </div>
       </div>
       <div class="input-field col s12">
@@ -35,14 +35,13 @@
           type="password"
           name="passwordRepeat"
           ngModel required
-          #passwordRepeat="ngModel"
-          class="white-text">
-        <label for="passwordRepeat" class="yellow-text">Repeat Password</label>
+          #passwordRepeat="ngModel">
+        <label for="passwordRepeat">Repeat Password</label>
         <div *ngIf="passwordRepeat.invalid && passwordRepeat.touched">
-          <span class="helper-text white-text" *ngIf="passwordRepeat.errors.required">Repeat the password</span>
+          <span class="helper-text" *ngIf="passwordRepeat.errors.required">Repeat the password</span>
         </div>
         <div *ngIf="passwordRepeat.touched">
-          <span class="helper-text white-text" *ngIf="this.password.value !== this.passwordRepeat.value">
+          <span class="helper-text" *ngIf="this.password.value !== this.passwordRepeat.value">
             Password does not match the first password
           </span>
         </div>

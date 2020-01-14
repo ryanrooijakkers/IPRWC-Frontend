@@ -3,8 +3,8 @@
 <div class="container">
   <div class="row">
     <div class="col s12 m6">
-      <h1>{{ product.name }}</h1>
       <img
+        class="product-img"
         src="https://www.plantje.nl/wp-content/uploads/2019/09/sansevieria-trifasciata-laurentii-12-600x600.jpg"
         alt="">
     </div>
@@ -13,7 +13,8 @@
         <div class="card darken-1 blue-grey">
           <div class="card darken-1">
             <div class="card-content">
-              <span class="card-title">Now available for &#8364;{{ product.cost }}</span>
+              <h2>{{ product.name }}</h2>
+              <span class="card-title">&#8364;{{ product.cost }}</span>
             </div>
             <div class="card-action">
               <a href="#">Order now</a>
@@ -21,14 +22,14 @@
             </div>
           </div>
           <div class="card-content white-text">
-            <span class="card-title">Specifications</span>
+            <span class="card-title">Plant details</span>
             <p>Max height: {{ product.height }} cm</p>
             <p>Preferred temperature: {{ product.temperature }}&#8451;</p>
             <p>Light need: {{ product.lightNeed }}</p>
             <p>CO2 need: {{ product.co2Need }}</p>
             <p>Origin: {{ product.origin }}</p>
             <div class="card-image">
-              <img #originImg src="assets/images/amazon.png" alt="test">
+              <img class="origin-img" #originImg src="assets/images/amazon.png" alt="test">
             </div>
           </div>
         </div>
