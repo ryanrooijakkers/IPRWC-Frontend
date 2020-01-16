@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {HomeComponent} from './home/home.component';
 import {FooterComponent} from './footer/footer.component';
 import {ProductResolver} from './products/product-resolver.service';
+import {AdminModule} from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {ProductResolver} from './products/product-resolver.service';
     ProductModule,
     SharedModule,
     UserModule,
-    HttpClientModule
+    HttpClientModule,
+    AdminModule
   ],
   providers: [
     ProductResolver

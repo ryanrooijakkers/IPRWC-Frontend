@@ -38,4 +38,8 @@ export class UserService {
     localStorage.removeItem('user');
     this.currentUser = null;
   }
+
+  isAuthorized() {
+    return this.currentUser.privileges > 0;
+  }
 }

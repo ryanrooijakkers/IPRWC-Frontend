@@ -9,6 +9,8 @@ import {ProductResolver} from './products/product-resolver.service';
 import {RegisterComponent} from './users/register/register.component';
 import {AccountComponent} from './users/account/account.component';
 import {AuthenticatedGuard} from './shared/authenticated.guard';
+import {AdminPanelComponent} from './admin/admin-panel/admin-panel.component';
+import {AuthorisationGuard} from './shared/authorisation.guard';
 
 
 const routes: Routes = [
@@ -19,7 +21,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [AuthenticatedGuard]},
   {path: 'register', component: RegisterComponent, canActivate: [AuthenticatedGuard]},
   {path: 'product-detail/:product', component: ProductDetailComponent},
-  {path: 'account', component: AccountComponent, canActivate: [AuthenticatedGuard]}
+  {path: 'account', component: AccountComponent, canActivate: [AuthenticatedGuard]},
+  {path: 'admin-panel', component: AdminPanelComponent, resolve: {products: ProductResolver}, canActivate: [AuthorisationGuard]}
 ];
 
 @NgModule({

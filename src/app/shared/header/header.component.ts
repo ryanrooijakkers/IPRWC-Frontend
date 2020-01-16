@@ -9,11 +9,13 @@ import {UserService} from '../../users/user.service';
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
   loggedIn: boolean;
+  isAuthorized: boolean;
 
   constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.loggedIn = this.userService.isLoggedIn();
+    this.isAuthorized = this.userService.isAuthorized();
   }
 
   ngAfterViewInit() {
