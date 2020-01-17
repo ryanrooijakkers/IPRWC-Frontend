@@ -31,4 +31,8 @@ export class ProductService {
       });
     return productItemSubject;
   }
+
+  productsIsEmpty() {
+    return this.products.length === 0;
+  }
 }

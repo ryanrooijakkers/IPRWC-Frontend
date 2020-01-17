@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {User} from '../user.model';
 import {UserService} from '../user.service';
+import {NgForm} from '@angular/forms';
+import {HttpBody} from '../../shared/http-body.model';
 
 @Component({
   selector: 'app-account',
@@ -8,21 +9,35 @@ import {UserService} from '../user.service';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
-  currentUser: User;
-  @ViewChild('newPassword', {static: false}) newPassword: string;
-  @ViewChild('newPasswordRepeat', {static: false}) newPasswordRepeat: string;
+  @ViewChild('changePasswordGroup', {static: false}) changePasswordGroup: NgForm;
 
   constructor(private userService: UserService) {}
 
   ngOnInit() {
-    this.currentUser = this.userService.currentUser;
-  }
-
-  onSubmitInfo() {
-
   }
 
   onSubmitPassword() {
+    if (this.checkPasswords() && this.changePasswordGroup.valid) {
+      this.userService.changePassword(this.changePasswordGroup.form.value.newPassword).subscribe((httpBody: HttpBody) => {
+        this.userService.logout();
+        M.toast({html: httpBody.message});
+      }, (changePasswordError) => {
+        M.toast({html: changePasswordError.error.message});
+      });
+    }
+  }
 
+  checkPasswords() {
+    const formValues = this.changePasswordGroup.form.value;
+    return formValues.newPassword === formValues.newPasswordRepeat;
+  }
+
+  onDeleteAccount() {
+    this.userService.deleteAccount().subscribe((httpBody: HttpBody) => {
+      this.userService.logout();
+      M.toast({html: httpBody.message});
+    }, (deleteAccountError) => {
+      M.toast({html: deleteAccountError.error.message});
+    });
   }
 }

@@ -2,24 +2,30 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {AdminPanelComponent} from './admin-panel/admin-panel.component';
 import {SharedModule} from '../shared/shared.module';
-import { EditProductItemComponent } from './admin-products/edit-product-item/edit-product-item.component';
+import { AdminProductItemComponent } from './admin-products/admin-product-item/admin-product-item.component';
 import {ProductModule} from '../products/product.module';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
 import {AppRoutingModule} from '../app-routing.module';
+import { NewProductComponent } from './new-product/new-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
+import {FormsModule} from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
     AdminPanelComponent,
-    EditProductItemComponent,
-    AdminProductsComponent
+    AdminProductItemComponent,
+    AdminProductsComponent,
+    NewProductComponent,
+    EditProductComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     ProductModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ]
 })
 export class AdminModule { }

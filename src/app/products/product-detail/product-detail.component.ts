@@ -19,12 +19,7 @@ export class ProductDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe((data: Params) => {
       this.productService.getProductById(data.product).subscribe((response: Product) => {
         this.product = response;
-        this.setOriginImage();
       });
     });
-  }
-
-  private setOriginImage() {
-    this.origin.nativeElement.src = 'assets/images/' + this.product.origin.toLocaleLowerCase() + '.png';
   }
 }

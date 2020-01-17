@@ -8,11 +8,19 @@ export class HttpService {
 
   private static buildOptions() {
     const head = new HttpHeaders({
-      // Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MjUsImV4cCI6MTU3NTQ2NTM5NX0.BfiY2R5CoC13Xxs646k1ZXyOZ55WnfD1Ts8a7J1vdwE',
+      Authorization: this.buildAuthHeader()
     });
     return {
       headers: head
     };
+  }
+
+  private static buildAuthHeader() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user !== null) {
+      return `Bearer ${user.authToken}`;
+    }
+    return '';
   }
 
   get(path: string) {
@@ -24,6 +32,12 @@ export class HttpService {
     const httpOptions = HttpService.buildOptions();
     httpOptions.headers.set('Content-Type', 'application/x-www-form-urlencoded');
     return this.httpClient.post(path, data, httpOptions);
+  }
+
+  putForm(path: string, data: HttpParams) {
+    const httpOptions = HttpService.buildOptions();
+    httpOptions.headers.set('Content-Type', 'application/x-www-form-urlencoded');
+    return this.httpClient.put(path, data, httpOptions);
   }
 
   postJSON(path: string, data: string) {

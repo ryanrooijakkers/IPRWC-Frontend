@@ -5,13 +5,14 @@
       <h2>Register</h2>
     </div>
   </div>
+
   <div class="row">
     <form class="card" #formGroup="ngForm" (ngSubmit)="onSubmit()">
       <div class="input-field col s12">
         <input id="name" type="text" name="name" ngModel required #name="ngModel">
         <label for="name">Name</label>
         <div *ngIf="name.invalid && name.touched">
-          <span class="helper-text" *ngIf="name.errors.name">Name is required</span>
+          <span class="helper-text" *ngIf="name.errors.required">Name is required</span>
         </div>
       </div>
       <div class="input-field col s12">

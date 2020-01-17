@@ -27,6 +27,7 @@
   <li><a routerLink="/products" class="waves-effect waves-light btn-flat modal-trigger">Products</a></li>
   <li *ngIf="!loggedIn"><a routerLink="/register" class="waves-effect waves-light btn-flat modal-trigger">Register</a></li>
   <li *ngIf="!loggedIn"><a routerLink="/login" class="waves-effect waves-light btn-flat modal-trigger">Login</a></li>
+  <li *ngIf="loggedIn && isAuthorized"><a routerLink="/admin-panel" class="waves-effect waves-light btn-flat modal-trigger">Admin</a></li>
   <li *ngIf="loggedIn"><a routerLink="/login" class="waves-effect waves-light btn-flat modal-trigger" (click)="logout()">Logout</a></li>
   <li *ngIf="loggedIn"><a routerLink="/account" class="waves-effect waves-light btn-flat modal-trigger">Account</a></li>
   <li><a routerLink="/shopping-cart"><i class="material-icons">shopping_basket</i></a></li>

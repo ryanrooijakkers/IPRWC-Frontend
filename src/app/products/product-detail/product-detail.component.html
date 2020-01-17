@@ -14,7 +14,8 @@
           <div class="card darken-1">
             <div class="card-content">
               <h2>{{ product.name }}</h2>
-              <span class="card-title">&#8364;{{ product.cost }}</span>
+              <p>{{ product.description }}</p>
+              <span class="card-title">&#8364;{{ product.price }}</span>
             </div>
             <div class="card-action">
               <a href="#">Order now</a>
@@ -26,11 +27,8 @@
             <p>Max height: {{ product.height }} cm</p>
             <p>Preferred temperature: {{ product.temperature }}&#8451;</p>
             <p>Light need: {{ product.lightNeed }}</p>
-            <p>CO2 need: {{ product.co2Need }}</p>
-            <p>Origin: {{ product.origin }}</p>
-            <div class="card-image">
-              <img class="responsive-img" #originImg src="assets/images/amazon.png" alt="test">
-            </div>
+            <p>Nutrition: {{ product.nutrition }}</p>
+            <p>PH: {{ product.ph }}</p>
           </div>
         </div>
       </div>

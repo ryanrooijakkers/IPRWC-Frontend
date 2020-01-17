@@ -1,11 +1,12 @@
 export class Product {
   id: number;
   name: string;
-  cost: number;
+  price: number;
+  description: string;
   height: number;
   temperature: number;
   lightNeed: string;
-  co2Need: string;
-  origin: string;
+  nutrition: string;
+  ph: string;
   imgPath: string;
 }
