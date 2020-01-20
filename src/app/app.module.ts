@@ -32,6 +32,8 @@ import {AdminModule} from './admin/admin.module';
   providers: [
     ProductResolver
   ],
+  exports: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

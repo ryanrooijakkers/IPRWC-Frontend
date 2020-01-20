@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {ProductService} from '../product.service';
 import {Product} from '../product.model';
@@ -9,9 +9,7 @@ import {Product} from '../product.model';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-
   product: Product = new Product();
-  @ViewChild('originImg', {static: true}) origin: ElementRef;
 
   constructor(private activatedRoute: ActivatedRoute, private productService: ProductService) {}
 
@@ -21,5 +19,9 @@ export class ProductDetailComponent implements OnInit {
         this.product = response;
       });
     });
+  }
+
+  addProductToCart() {
+    this.productService.addShoppingCartProduct(this.product);
   }
 }

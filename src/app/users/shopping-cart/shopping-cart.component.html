@@ -1,15 +1,8 @@
-<p>shopping-cart works!</p>
-<a routerLink="" class="waves-effect waves-light btn-flat">Home</a>
-
-<form action="#">
-  <div class="file-field input-field">
-    <div class="btn">
-      <span>File</span>
-      <input type="file">
-    </div>
-    <div class="file-path-wrapper">
-      <input class="file-path validate" type="text">
-    </div>
+<app-header></app-header>
+<div class="container">
+  <div class="col s12">
+    <ul>
+      <app-shopping-cart-item *ngFor="let product of products" [product]="product"></app-shopping-cart-item>
+    </ul>
   </div>
-  <button class="waves-effect waves-light btn" (click)="uploadImage()">Upload</button>
-</form>
+</div>

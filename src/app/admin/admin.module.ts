@@ -6,9 +6,10 @@ import { AdminProductItemComponent } from './admin-products/admin-product-item/a
 import {ProductModule} from '../products/product.module';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
 import {AppRoutingModule} from '../app-routing.module';
-import { NewProductComponent } from './new-product/new-product.component';
-import { EditProductComponent } from './edit-product/edit-product.component';
+import { NewProductComponent } from './admin-products/new-product/new-product.component';
+import { EditProductComponent } from './admin-products/edit-product/edit-product.component';
 import {FormsModule} from '@angular/forms';
+import {AdminPanelHeaderComponent} from './admin-panel-header/admin-panel-header.component';
 
 
 
@@ -18,7 +19,8 @@ import {FormsModule} from '@angular/forms';
     AdminProductItemComponent,
     AdminProductsComponent,
     NewProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    AdminPanelHeaderComponent
   ],
   imports: [
     CommonModule,

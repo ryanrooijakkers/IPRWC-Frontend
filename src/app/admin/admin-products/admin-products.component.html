@@ -12,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr routerLink="/product-detail/{{ product.id }}" app-edit-product-item *ngFor="let product of productService.products" [product]="product"></tr>
+    <tr app-edit-product-item *ngFor="let product of productService.products" [product]="product"></tr>
   </tbody>
 </table>
 <p *ngIf="productService.productsIsEmpty()">There are currently no products for sale.</p>

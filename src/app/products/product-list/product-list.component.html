@@ -1,4 +1,6 @@
 <app-header></app-header>
-<div class="row">
-  <app-product-item class="col s12 m4" *ngFor="let product of productService.products" [product]="product"></app-product-item>
+<div class="container">
+  <div class="row">
+    <app-product-item class="col s12 m4" *ngFor="let product of productService.products" [product]="product"></app-product-item>
+  </div>
 </div>

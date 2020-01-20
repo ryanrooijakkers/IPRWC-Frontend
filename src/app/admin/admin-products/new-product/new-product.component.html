@@ -1,0 +1,91 @@
+<h2>New Product</h2>
+<form class="z-depth-1" #newProductGroup="ngForm" (ngSubmit)="onSubmit()">
+  <div class="input-field col s12">
+    <input id="name" type="text" name="name" ngModel required #name="ngModel">
+    <label for="name">Name</label>
+    <div *ngIf="name.invalid && name.touched">
+      <span class="helper-text" *ngIf="name.errors.required">Name is required</span>
+    </div>
+  </div>
+
+  <div class="input-field col s12">
+    <textarea
+      id="description"
+      type="text"
+      name="description"
+      class="materialize-textarea"
+      ngModel required
+      #description="ngModel"></textarea>
+    <label for="description">Description</label>
+    <div *ngIf="description.invalid && description.touched">
+      <span class="helper-text" *ngIf="description.errors.required">Description is required</span>
+    </div>
+  </div>
+
+  <div class="input-field col s12">
+    <input id="price" type="number" name="price" ngModel required #price="ngModel">
+    <label for="price">Price</label>
+    <div *ngIf="price.invalid && price.touched">
+      <span class="helper-text" *ngIf="price.errors.required">price is required</span>
+    </div>
+  </div>
+
+  <div class="input-field col s12">
+    <input id="height" type="text" name="height" ngModel required #height="ngModel">
+    <label for="height">Height</label>
+    <div *ngIf="height.invalid && height.touched">
+      <span class="helper-text" *ngIf="height.errors.required">Height is required</span>
+    </div>
+  </div>
+
+  <div class="input-field col s12">
+    <input id="temperature" type="text" name="temperature" ngModel required #temperature="ngModel">
+    <label for="temperature">Temperature</label>
+    <div *ngIf="temperature.invalid && temperature.touched">
+      <span class="helper-text" *ngIf="temperature.errors.required">Temperature is required</span>
+    </div>
+  </div>
+
+  <div class="input-field col s12">
+    <input id="ph" type="text" name="ph" ngModel required #ph="ngModel">
+    <label for="ph">ph</label>
+    <div *ngIf="ph.invalid && ph.touched">
+      <span class="helper-text" *ngIf="ph.errors.required">ph is required</span>
+    </div>
+  </div>
+
+  <div class="input-field col s12">
+    <input id="lightNeed" type="text" name="lightNeed" ngModel required #lightNeed="ngModel">
+    <label for="lightNeed">Light Need</label>
+    <div *ngIf="lightNeed.invalid && lightNeed.touched">
+      <span class="helper-text" *ngIf="lightNeed.errors.required">Light Need is required</span>
+    </div>
+  </div>
+
+  <div class="input-field col s12">
+    <textarea
+      id="nutrition"
+      type="text"
+      name="nutrition"
+      class="materialize-textarea"
+      ngModel required
+      #nutrition="ngModel"></textarea>
+    <label for="nutrition">Nutrition</label>
+    <div *ngIf="nutrition.invalid && nutrition.touched">
+      <span class="helper-text" *ngIf="nutrition.errors.required">Nutrition is required</span>
+    </div>
+  </div>
+
+  <div class="file-field input-field col s12">
+    <div class="btn waves-effect waves-light">
+      <span>Image</span>
+      <input type="file" multiple name="images" (change)="filesSelected($event.target.files)">
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text" placeholder="Upload one or more images">
+    </div>
+  </div>
+
+  <button class="btn waves-effect waves-light" type="submit">Add product</button>
+  <button class="btn-flat red-text waves-effect waves-light" routerLink="../products">Cancel</button>
+</form>

@@ -18,8 +18,8 @@
               <span class="card-title">&#8364;{{ product.price }}</span>
             </div>
             <div class="card-action">
-              <a href="#">Order now</a>
-              <a href="#">Add to shopping cart</a>
+              <button class="btn waves-effect waves-light">Order now</button>
+              <button class="btn-flat waves-light waves-effect" (click)="addProductToCart()">Add to shopping cart</button>
             </div>
           </div>
           <div class="card-content white-text">
@@ -28,7 +28,7 @@
             <p>Preferred temperature: {{ product.temperature }}&#8451;</p>
             <p>Light need: {{ product.lightNeed }}</p>
             <p>Nutrition: {{ product.nutrition }}</p>
-            <p>PH: {{ product.ph }}</p>
+            <p>pH: {{ product.ph }}</p>
           </div>
         </div>
       </div>

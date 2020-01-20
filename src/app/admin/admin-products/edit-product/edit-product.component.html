@@ -1,10 +1,18 @@
-<h2>New Product</h2>
-<form class="z-depth-1" #newProductGroup="ngForm" (ngSubmit)="onSubmit()">
+<h2>Edit Product: {{ product.name }}</h2>
+<form class="z-depth-1" #editProductGroup="ngForm" (ngSubmit)="onSubmit()">
   <div class="input-field col s12">
-    <input id="name" type="text" name="name" ngModel required #name="ngModel">
+    <input class="validate" id="name" type="text" name="name" ngModel required #name="ngModel" [(ngModel)]="product.name">
     <label for="name">Name</label>
     <div *ngIf="name.invalid && name.touched">
       <span class="helper-text" *ngIf="name.errors.required">Name is required</span>
+    </div>
+  </div>
+
+  <div class="input-field col s12">
+    <input id="price" type="number" name="price" ngModel required #price="ngModel" [(ngModel)]="product.price">
+    <label for="price">Price</label>
+    <div *ngIf="price.invalid && price.touched">
+      <span class="helper-text" *ngIf="price.errors.required">price is required</span>
     </div>
   </div>
 
@@ -15,7 +23,8 @@
       name="description"
       class="materialize-textarea"
       ngModel required
-      #description="ngModel"></textarea>
+      #description="ngModel"
+      [(ngModel)]="product.description"></textarea>
     <label for="description">Description</label>
     <div *ngIf="description.invalid && description.touched">
       <span class="helper-text" *ngIf="description.errors.required">Description is required</span>
@@ -23,15 +32,7 @@
   </div>
 
   <div class="input-field col s12">
-    <input id="price" type="number" name="price" ngModel required #price="ngModel">
-    <label for="price">Price</label>
-    <div *ngIf="price.invalid && price.touched">
-      <span class="helper-text" *ngIf="price.errors.required">price is required</span>
-    </div>
-  </div>
-
-  <div class="input-field col s12">
-    <input id="height" type="text" name="height" ngModel required #height="ngModel">
+    <input id="height" type="text" name="height" ngModel required #height="ngModel" [(ngModel)]="product.height">
     <label for="height">Height</label>
     <div *ngIf="height.invalid && height.touched">
       <span class="helper-text" *ngIf="height.errors.required">Height is required</span>
@@ -39,7 +40,8 @@
   </div>
 
   <div class="input-field col s12">
-    <input id="temperature" type="text" name="temperature" ngModel required #temperature="ngModel">
+    <input id="temperature" type="text" name="temperature" ngModel required
+           #temperature="ngModel" [(ngModel)]="product.temperature">
     <label for="temperature">Temperature</label>
     <div *ngIf="temperature.invalid && temperature.touched">
       <span class="helper-text" *ngIf="temperature.errors.required">Temperature is required</span>
@@ -47,15 +49,8 @@
   </div>
 
   <div class="input-field col s12">
-    <input id="pH" type="text" name="pH" ngModel required #pH="ngModel">
-    <label for="pH">pH</label>
-    <div *ngIf="pH.invalid && pH.touched">
-      <span class="helper-text" *ngIf="pH.errors.required">pH is required</span>
-    </div>
-  </div>
-
-  <div class="input-field col s12">
-    <input id="lightNeed" type="text" name="lightNeed" ngModel required #lightNeed="ngModel">
+    <input id="lightNeed" type="text" name="lightNeed" ngModel required
+           #lightNeed="ngModel" [(ngModel)]="product.lightNeed">
     <label for="lightNeed">Light Need</label>
     <div *ngIf="lightNeed.invalid && lightNeed.touched">
       <span class="helper-text" *ngIf="lightNeed.errors.required">Light Need is required</span>
@@ -69,12 +64,22 @@
       name="nutrition"
       class="materialize-textarea"
       ngModel required
-      #nutrition="ngModel"></textarea>
+      #nutrition="ngModel"
+      [(ngModel)]="product.nutrition"></textarea>
     <label for="nutrition">Nutrition</label>
     <div *ngIf="nutrition.invalid && nutrition.touched">
       <span class="helper-text" *ngIf="nutrition.errors.required">Nutrition is required</span>
     </div>
   </div>
-  <button class="btn waves-effect waves-light" routerLink="../products" type="submit">Add product</button>
+
+  <div class="input-field col s12">
+    <input id="ph" type="text" name="ph" ngModel required #ph="ngModel" [(ngModel)]="product.ph">
+    <label for="ph">ph</label>
+    <div *ngIf="ph.invalid && ph.touched">
+      <span class="helper-text" *ngIf="ph.errors.required">ph is required</span>
+    </div>
+  </div>
+
+  <button class="btn waves-effect waves-light" type="submit">Save product</button>
   <button class="btn-flat red-text waves-effect waves-light" routerLink="../products">Cancel</button>
 </form>

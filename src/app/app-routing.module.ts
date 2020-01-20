@@ -11,9 +11,9 @@ import {AccountComponent} from './users/account/account.component';
 import {AuthenticatedGuard} from './shared/authenticated.guard';
 import {AdminPanelComponent} from './admin/admin-panel/admin-panel.component';
 import {AuthorisationGuard} from './shared/authorisation.guard';
-import {NewProductComponent} from './admin/new-product/new-product.component';
+import {NewProductComponent} from './admin/admin-products/new-product/new-product.component';
 import {AdminProductsComponent} from './admin/admin-products/admin-products.component';
-import {EditProductComponent} from './admin/edit-product/edit-product.component';
+import {EditProductComponent} from './admin/admin-products/edit-product/edit-product.component';
 
 
 const routes: Routes = [
@@ -25,11 +25,11 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent, canActivate: [AuthenticatedGuard]},
   {path: 'product-detail/:product', component: ProductDetailComponent},
   {path: 'account', component: AccountComponent, canActivate: [AuthenticatedGuard]},
-  {path: 'admin-panel', component: AdminPanelComponent, resolve: {products: ProductResolver},
-    canActivate: [AuthorisationGuard, AuthenticatedGuard], canActivateChild: [AuthorisationGuard, AuthenticatedGuard], children: [
-      {path: 'products', component: AdminProductsComponent},
-      {path: 'new-product', component: NewProductComponent},
-      {path: 'edit-product/:product', component: EditProductComponent}
+  {path: 'admin-panel', component: AdminPanelComponent, canActivate: [AuthorisationGuard, AuthenticatedGuard],
+    canActivateChild: [AuthorisationGuard, AuthenticatedGuard], children: [
+      {path: 'products', component: AdminProductsComponent, resolve: {products: ProductResolver}},
+      {path: 'new-product', component: NewProductComponent, resolve: {products: ProductResolver}},
+      {path: 'edit-product/:product', component: EditProductComponent, resolve: {products: ProductResolver}}
     ]}
 ];
 

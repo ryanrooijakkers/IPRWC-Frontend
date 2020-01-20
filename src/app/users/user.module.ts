@@ -7,11 +7,12 @@ import {AppRoutingModule} from '../app-routing.module';
 import {SharedModule} from '../shared/shared.module';
 import { RegisterComponent } from './register/register.component';
 import { AccountComponent } from './account/account.component';
+import { ShoppingCartItemComponent } from './shopping-cart/shopping-cart-item/shopping-cart-item.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, ShoppingCartComponent, RegisterComponent, AccountComponent],
+  declarations: [LoginComponent, ShoppingCartComponent, RegisterComponent, AccountComponent, ShoppingCartItemComponent],
   exports: [
     LoginComponent
   ],

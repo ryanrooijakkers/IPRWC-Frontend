@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {Image} from '../products/image.model';
 
 @Injectable({providedIn: 'root'})
 export class HttpService {
@@ -8,7 +9,17 @@ export class HttpService {
 
   private static buildOptions() {
     const head = new HttpHeaders({
-      Authorization: this.buildAuthHeader()
+      Authorization: HttpService.buildAuthHeader()
+    });
+    return {
+      headers: head
+    };
+  }
+
+  private static buildOptionsContentType(contentType: string) {
+    const head = new HttpHeaders({
+      Authorization: HttpService.buildAuthHeader(),
+      'Content-Type': contentType
     });
     return {
       headers: head
@@ -29,31 +40,36 @@ export class HttpService {
   }
 
   postForm(path: string, data: HttpParams) {
-    const httpOptions = HttpService.buildOptions();
-    httpOptions.headers.set('Content-Type', 'application/x-www-form-urlencoded');
+    const httpOptions = HttpService.buildOptionsContentType('application/x-www-form-urlencoded');
     return this.httpClient.post(path, data, httpOptions);
   }
 
   putForm(path: string, data: HttpParams) {
-    const httpOptions = HttpService.buildOptions();
-    httpOptions.headers.set('Content-Type', 'application/x-www-form-urlencoded');
+    const httpOptions = HttpService.buildOptionsContentType('application/x-www-form-urlencoded');
     return this.httpClient.put(path, data, httpOptions);
   }
 
   postJSON(path: string, data: string) {
-    const httpOptions = HttpService.buildOptions();
-    httpOptions.headers.set('Content-Type', 'application/json');
+    const httpOptions = HttpService.buildOptionsContentType('application/json');
     return this.httpClient.post(path, data, httpOptions);
   }
 
   putJSON(path: string, data: string) {
-    const httpOptions = HttpService.buildOptions();
-    httpOptions.headers.set('Content-Type', 'application/json');
+    const httpOptions = HttpService.buildOptionsContentType('application/json');
     return this.httpClient.put(path, data, httpOptions);
   }
 
   delete(path: string) {
     const httpOptions = HttpService.buildOptions();
     return this.httpClient.delete(path, httpOptions);
+  }
+
+  getImageURL(image: Image) {
+    return 'http://spoopy.nl/images/' + image.id;
+  }
+
+  postMultiPart(path: string, data: FormData) {
+    const httpOptions = HttpService.buildOptionsContentType('multipart/form-data');
+    return this.httpClient.post(path, data, httpOptions);
   }
 }

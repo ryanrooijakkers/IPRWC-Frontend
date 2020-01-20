@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import * as M from 'materialize-css';
 import {UserService} from '../../users/user.service';
+import {ProductService} from '../../products/product.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   loggedIn: boolean;
   isAuthorized: boolean;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private productService: ProductService) {}
 
   ngOnInit() {
     this.loggedIn = this.userService.isLoggedIn();
@@ -28,5 +29,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   logout() {
     this.userService.logout();
+    this.productService.clearShoppingCart();
   }
 }

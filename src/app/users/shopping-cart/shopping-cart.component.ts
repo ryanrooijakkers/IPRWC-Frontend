@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
+import {Product} from '../../products/product.model';
+import {ProductService} from '../../products/product.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -6,13 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent implements OnInit {
+  products: Product[] = [];
 
-  constructor() { }
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {
-  }
-
-  uploadImage() {
-
+    this.products = this.productService.shoppingCartProducts;
   }
 }
