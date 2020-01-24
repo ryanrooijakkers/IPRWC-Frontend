@@ -1,6 +1,9 @@
 <div class="card white darken-1 small">
   <div class="card-content blue-grey-text">
-    <span class="card-title">{{ product.name }}</span>
+    <div class="flex-container">
+      <span class="card-title">{{ product.name }}</span>
+      <span class="card-title">&#8364;{{ product.price }}</span>
+    </div>
     <div class="row">
       <div class="col s6">
         <img class="responsive-img" [src]="imageSrc" alt="{{ product.name }}">

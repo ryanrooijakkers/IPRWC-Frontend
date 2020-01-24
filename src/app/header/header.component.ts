@@ -27,4 +27,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.userService.logout();
     this.productService.clearShoppingCart();
   }
+
+  onSubmitSearch() {
+    console.log('test');
+  }
 }

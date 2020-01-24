@@ -1,5 +1,13 @@
 <div class="container">
   <div class="row">
-    <app-product-item class="col s12 m4" *ngFor="let product of productService.products" [product]="product"></app-product-item>
+    <div class="input-field">
+      <i class="material-icons prefix">search</i>
+      <input id="search" type="search" #input (input)="filterProducts(input.value)">
+      <label for="search">Search</label>
+      <i class="material-icons">close</i>
+    </div>
+  </div>
+  <div class="row">
+    <app-product-item class="col s12 m4" *ngFor="let product of filteredProducts" [product]="product"></app-product-item>
   </div>
 </div>

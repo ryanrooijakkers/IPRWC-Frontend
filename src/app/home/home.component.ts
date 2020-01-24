@@ -11,8 +11,8 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    const carouselElems = document.querySelectorAll('.carousel');
-    M.Carousel.init(carouselElems, { fullWidth: true, indicators: true });
+    const parallaxElems = document.querySelectorAll('.parallax');
+    M.Parallax.init(parallaxElems);
   }
 
 }

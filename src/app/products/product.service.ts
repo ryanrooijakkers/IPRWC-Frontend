@@ -122,4 +122,12 @@ export class ProductService {
     this.clearShoppingCart();
     M.toast({html: 'Thank you for your purchase, the products will be delivered to your address'});
   }
+
+  getProductNames() {
+    const names = [];
+    this.products.forEach(product => {
+      names.push(product.name);
+    });
+    return names;
+  }
 }
