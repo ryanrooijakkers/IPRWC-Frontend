@@ -16,7 +16,7 @@ a,li {
 
 @font-face {
   font-family: test;
-  src: url("../../../assets/CapricaSansPersonalUse-J4wx.ttf");
+  src: url("../../assets/CapricaSansPersonalUse-J4wx.ttf");
 }
 
 #login-modal {

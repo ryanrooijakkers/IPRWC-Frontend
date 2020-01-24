@@ -1,0 +1,73 @@
+<div class="container">
+  <h2>Shopping Cart</h2>
+  <table *ngIf="!isEmpty()" class="responsive-table highlight">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Description</th>
+        <th>Price &#8364;</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr app-shopping-cart-item *ngFor="let product of productService.shoppingCartProducts" [product]="product"></tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Number of Products: {{ productService.shoppingCartProducts.length }}</th>
+        <th></th>
+        <th></th>
+        <th>Price: &#8364;{{ totalPrice() }}</th>
+        <th>
+          <a class="btn waves-light modal-trigger" href="#modalCheckout">Checkout</a>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+  <p *ngIf="isEmpty()">You have no current products in your shopping cart</p>
+</div>
+
+<div id="modalCheckout" class="modal">
+  <div class="modal-content">
+    <h4>Checkout</h4>
+    <div class="divider"></div>
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="address" type="text" class="validate">
+          <label for="address">Address</label>
+        </div>
+        <div class="input-field col s3">
+          <input id="number" type="text" class="validate">
+          <label for="number">Number</label>
+        </div>
+        <div class="input-field col s3">
+          <input id="number-affix" type="text" class="validate">
+          <label for="number-affix">Affix</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="postalCode" type="text" class="validate">
+          <label for="postalCode">Postal Code</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="city" type="text" class="validate">
+          <label for="city">City</label>
+        </div>
+      </div>
+    </form>
+    <div class="col s12">
+      <div class="row">
+        <p>Number of products: {{ productService.shoppingCartProducts.length }}</p>
+        <p>Price: &#8364;{{ totalPrice() }}</p>
+      </div>
+      <div class="row">
+        <a class="modal-close waves-effect waves-green btn blue darken-2" routerLink="/home" (click)="checkout()">Buy</a>
+      </div>
+    </div>
+  </div>
+</div>

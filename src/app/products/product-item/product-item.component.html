@@ -1,9 +1,9 @@
-<div class="card white darken-1">
+<div class="card white darken-1 small">
   <div class="card-content blue-grey-text">
     <span class="card-title">{{ product.name }}</span>
     <div class="row">
       <div class="col s6">
-<!--        <img src="{{ product.imgPath }}" alt="">-->
+        <img class="responsive-img" [src]="imageSrc" alt="{{ product.name }}">
       </div>
       <div class="col s6">
         <p>{{ product.description }}</p>
@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="card-action">
-    <a routerLink="/product-detail/{{ product.id }}">Info</a>
-    <a href="#">Order now</a>
+    <a class="btn waves-light waves-effect" routerLink="/product-detail/{{ product.id }}">Info</a>
+    <a class="btn-flat waves-light waves-effect" routerLink="/shopping-cart" (click)="orderProduct()">Order now</a>
   </div>
 </div>

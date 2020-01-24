@@ -1,12 +1,7 @@
-<app-header></app-header>
-
 <div class="container">
   <div class="row">
     <div class="col s12 m6">
-      <img
-        class="responsive-img"
-        src="https://www.plantje.nl/wp-content/uploads/2019/09/sansevieria-trifasciata-laurentii-12-600x600.jpg"
-        alt="">
+      <img *ngIf="imageSrc" class="responsive-img card" [src]="imageSrc" alt="{{ product.name }}">
     </div>
     <div class="col s12 m6">
       <div class="row">
@@ -18,8 +13,13 @@
               <span class="card-title">&#8364;{{ product.price }}</span>
             </div>
             <div class="card-action">
-              <button class="btn waves-effect waves-light">Order now</button>
-              <button class="btn-flat waves-light waves-effect" (click)="addProductToCart()">Add to shopping cart</button>
+              <button
+                class="btn waves-effect waves-light"
+                (click)="addProductToCart()"
+                routerLink="/shopping-cart">Order now</button>
+              <button
+                class="btn-flat waves-light waves-effect"
+                (click)="addProductToCart()">Add to shopping cart</button>
             </div>
           </div>
           <div class="card-content white-text">

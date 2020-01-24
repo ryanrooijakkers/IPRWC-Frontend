@@ -30,7 +30,6 @@ export class NewProductComponent implements OnInit {
           M.toast({html: httpBody.message});
         }
       }, (addProductError) => {
-        console.log(addProductError);
         M.toast({html: addProductError.error.message});
       });
     }
@@ -41,7 +40,6 @@ export class NewProductComponent implements OnInit {
       this.router.navigate(['admin-panel/products']);
       M.toast({html: httpBody.message});
     }, (uploadImageError) => {
-      console.log(uploadImageError);
       M.toast({html: uploadImageError.error.message});
     });
   }

@@ -32,7 +32,7 @@ export class UserService {
   }
 
   isLoggedIn() {
-    return this.currentUser !== null;
+    return this.currentUser !== null && localStorage.getItem('user') !== null;
   }
 
   logout() {
@@ -55,5 +55,10 @@ export class UserService {
 
   deleteAccount() {
     return this.httpService.delete(this.path + this.currentUser.id);
+  }
+
+  setNewAuthToken(authToken: string) {
+    this.currentUser.authToken = authToken;
+    localStorage.setItem('user', JSON.stringify(this.currentUser));
   }
 }

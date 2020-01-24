@@ -69,7 +69,7 @@ export class HttpService {
   }
 
   postMultiPart(path: string, data: FormData) {
-    const httpOptions = HttpService.buildOptionsContentType('multipart/form-data');
+    const httpOptions = HttpService.buildOptions();
     return this.httpClient.post(path, data, httpOptions);
   }
 }

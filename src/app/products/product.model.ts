@@ -10,5 +10,5 @@ export class Product {
   lightNeed: string;
   nutrition: string;
   ph: string;
-  images: Image[];
+  images: Image[] = [];
 }

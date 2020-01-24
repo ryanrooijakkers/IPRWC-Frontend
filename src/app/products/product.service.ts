@@ -5,6 +5,7 @@ import {Subject} from 'rxjs';
 import {HttpBody} from '../shared/http-body.model';
 import {HttpParams} from '@angular/common/http';
 import {Image} from './image.model';
+import * as M from 'materialize-css';
 
 @Injectable({providedIn: 'root'})
 export class ProductService {
@@ -99,8 +100,26 @@ export class ProductService {
     localStorage.setItem('shoppingCartProducts', JSON.stringify(this.shoppingCartProducts));
   }
 
+  removeShoppingCartProduct(productRemove: Product) {
+    const products = JSON.parse(localStorage.getItem('shoppingCartProducts')) as Product[];
+    for (const product of this.shoppingCartProducts) {
+      if (product.id === productRemove.id) {
+        const index = products.indexOf(product);
+        products.splice(index, 1);
+        break;
+      }
+    }
+    localStorage.setItem('shoppingCartProducts', JSON.stringify(products));
+    this.shoppingCartProducts = products;
+  }
+
   clearShoppingCart() {
     localStorage.removeItem('shoppingCartProducts');
     this.shoppingCartProducts = [];
+  }
+
+  checkout() {
+    this.clearShoppingCart();
+    M.toast({html: 'Thank you for your purchase, the products will be delivered to your address'});
   }
 }

@@ -9,7 +9,6 @@ import {AppRoutingModule} from '../app-routing.module';
 import { NewProductComponent } from './admin-products/new-product/new-product.component';
 import { EditProductComponent } from './admin-products/edit-product/edit-product.component';
 import {FormsModule} from '@angular/forms';
-import {AdminPanelHeaderComponent} from './admin-panel-header/admin-panel-header.component';
 
 
 
@@ -19,8 +18,7 @@ import {AdminPanelHeaderComponent} from './admin-panel-header/admin-panel-header
     AdminProductItemComponent,
     AdminProductsComponent,
     NewProductComponent,
-    EditProductComponent,
-    AdminPanelHeaderComponent
+    EditProductComponent
   ],
   imports: [
     CommonModule,
