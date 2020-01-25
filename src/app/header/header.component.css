@@ -1,5 +1,5 @@
 nav {
-  background-color: #FCFBFA;
+  background-color: #31AA63;
 }
 
 a,li {
@@ -11,7 +11,7 @@ a,li {
 }
 
 .material-icons {
-  color: #7A7776;
+  color: white;
 }
 
 @font-face {
@@ -25,4 +25,8 @@ a,li {
 
 .sidenav a {
   margin: 0;
+}
+
+a {
+  color: white;
 }

@@ -1,7 +1,7 @@
-<app-header></app-header>
-<div class="row">
-  <div class="col s12">
+<div class="col s12" [ngStyle]="{background: 'url(assets/background-images/dust_scratches.png)'}">
+  <app-header></app-header>
+  <main>
     <router-outlet></router-outlet>
-  </div>
+  </main>
+  <app-footer></app-footer>
 </div>
-<app-footer></app-footer>

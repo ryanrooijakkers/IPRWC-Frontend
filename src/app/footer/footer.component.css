@@ -1,28 +1,9 @@
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-main {
-  flex: 1 0 auto;
-}
-
-.page-footer {
-  background-color: white;
-}
-
-a,h5,p {
-  color: #2C2C2C;
-}
-
-.footer-copyright {
-  color: #2C2C2C;
-  background-color: #fafafa;
-}
-
 footer {
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
+  color: #2C2C2C;
+  background-color: #ededed;
+  padding: 20px 0;
 }
