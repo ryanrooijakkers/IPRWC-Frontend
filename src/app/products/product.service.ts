@@ -4,12 +4,10 @@ import {HttpService} from '../shared/http.service';
 import {Subject} from 'rxjs';
 import {HttpBody} from '../shared/http-body.model';
 import {HttpParams} from '@angular/common/http';
-import {Image} from './image.model';
 import * as M from 'materialize-css';
 
 @Injectable({providedIn: 'root'})
 export class ProductService {
-  path = 'http://spoopy.nl/plants/';
   products: Product[];
   shoppingCartProducts: Product[] = [];
 
@@ -22,7 +20,7 @@ export class ProductService {
 
   getAllProducts() {
     const productListSubject = new Subject<Product[]>();
-    this.httpService.get(this.path + 'all')
+    this.httpService.get('plants/all')
       .subscribe((httpBody: HttpBody) => {
         this.products = httpBody.content as Product[];
         productListSubject.next(this.products);
@@ -33,7 +31,7 @@ export class ProductService {
 
   getProductById(id: number) {
     const productItemSubject = new Subject<Product>();
-    this.httpService.get(this.path + id.toString())
+    this.httpService.get('plants/' + id.toString())
       .subscribe((httpBody: HttpBody) => {
         productItemSubject.next(httpBody.content as Product);
         productItemSubject.complete();
@@ -47,11 +45,11 @@ export class ProductService {
 
   addProduct(formValues) {
     const httpParams = this.makeProductHttpParams(formValues);
-    return this.httpService.postForm(this.path + 'new', httpParams);
+    return this.httpService.postForm('plants/new', httpParams);
   }
 
   deleteProduct(productId: number) {
-    return this.httpService.delete(this.path + productId);
+    return this.httpService.delete('plants/' + productId);
   }
 
   deleteProductFromArray(product: Product) {
@@ -62,7 +60,7 @@ export class ProductService {
   }
 
   updateProduct(product: Product, productId: number) {
-    return this.httpService.putJSON(this.path + productId, JSON.stringify(product));
+    return this.httpService.putJSON('plants/' + productId, JSON.stringify(product));
   }
 
   getProductImages(product: Product) {
@@ -71,16 +69,12 @@ export class ProductService {
     }
   }
 
-  getProductImage(image: Image) {
-    return this.httpService.getImageURL(image);
-  }
-
   saveProductImages(images: FileList, productId: number) {
     const data = new FormData();
     Array.from(images).forEach(image => {
       data.append('images', image);
     });
-    return this.httpService.postMultiPart(`http://spoopy.nl/images/upload/${productId}`, data);
+    return this.httpService.postMultiPart(`images/upload/${productId}`, data);
   }
 
   makeProductHttpParams(formValues) {
@@ -121,13 +115,5 @@ export class ProductService {
   checkout() {
     this.clearShoppingCart();
     M.toast({html: 'Thank you for your purchase, the products will be delivered to your address'});
-  }
-
-  getProductNames() {
-    const names = [];
-    this.products.forEach(product => {
-      names.push(product.name);
-    });
-    return names;
   }
 }

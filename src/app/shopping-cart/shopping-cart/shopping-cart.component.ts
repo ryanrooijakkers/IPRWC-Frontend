@@ -9,7 +9,7 @@ import * as M from 'materialize-css';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor(private productService: ProductService) {}
+  constructor(public productService: ProductService) {}
 
   ngOnInit() {
     const modalElements = document.querySelectorAll('.modal');

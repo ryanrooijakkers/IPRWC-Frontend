@@ -6,7 +6,6 @@ import {Router} from '@angular/router';
 
 @Injectable({providedIn: 'root'})
 export class UserService {
-  path = 'http://spoopy.nl/users/';
   currentUser: User = null;
 
   constructor(private httpService: HttpService, private router: Router) {
@@ -20,7 +19,7 @@ export class UserService {
     const httpParams = new HttpParams()
       .set('email', email)
       .set('password', password);
-    return this.httpService.postForm(this.path + 'login', httpParams);
+    return this.httpService.postForm('users/login', httpParams);
   }
 
   register(name: string, email: string, password: string) {
@@ -28,7 +27,7 @@ export class UserService {
       .set('email', email)
       .set('password', password)
       .set('name', name);
-    return this.httpService.postForm(this.path + 'register', httpParams);
+    return this.httpService.postForm('users/register', httpParams);
   }
 
   isLoggedIn() {
@@ -50,11 +49,11 @@ export class UserService {
   changePassword(password: string) {
     const httpParams = new HttpParams()
       .set('password', password);
-    return this.httpService.putForm(this.path + this.currentUser.id + '/change_password', httpParams);
+    return this.httpService.putForm('users/' + this.currentUser.id + '/change_password', httpParams);
   }
 
   deleteAccount() {
-    return this.httpService.delete(this.path + this.currentUser.id);
+    return this.httpService.delete('users/' + this.currentUser.id);
   }
 
   setNewAuthToken(authToken: string) {

@@ -10,7 +10,7 @@ import {ProductService} from '../products/product.service';
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
 
-  constructor(private userService: UserService, private productService: ProductService) {}
+  constructor(public userService: UserService, private productService: ProductService) {}
 
   ngOnInit() {
   }

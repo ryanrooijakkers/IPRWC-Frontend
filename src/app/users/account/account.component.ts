@@ -11,7 +11,7 @@ import {HttpBody} from '../../shared/http-body.model';
 export class AccountComponent implements OnInit {
   @ViewChild('changePasswordGroup', {static: false}) changePasswordGroup: NgForm;
 
-  constructor(private userService: UserService) {}
+  constructor(public userService: UserService) {}
 
   ngOnInit() {
   }

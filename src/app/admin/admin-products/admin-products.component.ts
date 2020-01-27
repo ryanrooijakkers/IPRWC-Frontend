@@ -8,7 +8,7 @@ import {ProductService} from '../../products/product.service';
 })
 export class AdminProductsComponent implements OnInit {
 
-  constructor(private productService: ProductService) { }
+  constructor(public productService: ProductService) { }
 
   ngOnInit() {
   }
